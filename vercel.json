@@ -15,5 +15,7 @@
       "src": "/(.*)",
       "dest": "/"
     }
-  ]
+  ],
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run vercel:build"
 }
