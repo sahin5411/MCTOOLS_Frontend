@@ -33,6 +33,7 @@
     "@angular/platform-server": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.0",
+    "@nguniversal/express-engine": "^18.2.0",
     "autoprefixer": "^10.4.19",
     "express": "^5.1.0",
     "postcss": "^8.4.38",
