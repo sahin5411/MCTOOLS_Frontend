@@ -1,0 +1,6 @@
+Product Image Placeholder
+ _______ 
+|       |
+| Image |
+|       |
+|_______|

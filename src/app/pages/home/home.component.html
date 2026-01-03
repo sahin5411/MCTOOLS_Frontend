@@ -1,0 +1,267 @@
+<!-- Hero Section -->
+<div class="hero-section bg-gradient-to-r from-deep-cobalt to-blue-900 text-white py-16 md:py-24">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="w-full">
+        <div class="inline-block bg-electric-orange text-white text-sm font-bold px-4 py-1 rounded-full mb-4">
+          PROFESSIONAL GRADE TOOLS
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">Precision Tools for <span class="text-electric-orange">Mobile Repair</span> Experts</h1>
+        <p class="text-xl mb-8 text-blue-100 max-w-2xl">High-quality tools and genuine parts designed for technicians who demand reliability and precision in every repair.</p>
+        
+        
+        
+        <div class="flex flex-col sm:flex-row gap-4">
+          <p-button label="Shop Collection" styleClass="bg-electric-orange border-electric-orange text-white hover:bg-orange-600 hover:border-orange-600 px-8 py-4 text-lg font-semibold" [rounded]="false"></p-button>
+          <p-button label="View Catalog" styleClass="bg-transparent border-2 border-white text-white hover:bg-white hover:text-deep-cobalt px-8 py-4 text-lg font-semibold" [rounded]="false"></p-button>
+        </div>
+        <div class="flex items-center mt-8">
+          <div class="flex -space-x-4">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-deep-cobalt font-bold border-2 border-white">T1</div>
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-deep-cobalt font-bold border-2 border-white">T2</div>
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-deep-cobalt font-bold border-2 border-white">T3</div>
+          </div>
+          <div class="ml-4">
+            <div class="flex text-yellow-400">
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+            </div>
+            <p class="text-white text-sm mt-1">Trusted by 5,000+ technicians worldwide</p>
+          </div>
+        </div>
+      </div>
+      <div class="w-full flex justify-center">
+        <div class="bg-gradient-to-br from-electric-orange to-red-600 rounded-2xl p-1 shadow-2xl max-w-lg">
+          <img src="https://www.lematec-tools.com/images/70950" alt="Professional Screwdriver Set" class="w-full h-auto object-cover rounded-xl" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Brand Promise -->
+<div class="py-12 bg-soft-light-gray">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-deep-cobalt rounded-full flex items-center justify-center text-white mb-4">
+          <i class="pi pi-shield text-xl"></i>
+        </div>
+        <h3 class="font-bold text-near-black text-lg">Genuine Parts</h3>
+        <p class="text-sm text-gray-600 mt-2">100% OEM Quality</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-electric-orange rounded-full flex items-center justify-center text-white mb-4">
+          <i class="pi pi-truck text-xl"></i>
+        </div>
+        <h3 class="font-bold text-near-black text-lg">Fast Shipping</h3>
+        <p class="text-sm text-gray-600 mt-2">2-3 Business Days</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-emerald-green rounded-full flex items-center justify-center text-white mb-4">
+          <i class="pi pi-refresh text-xl"></i>
+        </div>
+        <h3 class="font-bold text-near-black text-lg">30-Day Returns</h3>
+        <p class="text-sm text-gray-600 mt-2">No Questions Asked</p>
+      </div>
+      <div class="flex flex-col items-center text-center">
+        <div class="w-16 h-16 bg-crimson-red rounded-full flex items-center justify-center text-white mb-4">
+          <i class="pi pi-headphones text-xl"></i>
+        </div>
+        <h3 class="font-bold text-near-black text-lg">24/7 Support</h3>
+        <p class="text-sm text-gray-600 mt-2">Expert Assistance</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Featured Products -->
+<div class="container mx-auto px-4 py-16">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+    <div>
+      <h2 class="text-3xl md:text-4xl font-bold text-near-black">Featured Products</h2>
+      <p class="text-gray-600 mt-2">Professional tools trusted by repair technicians</p>
+    </div>
+    <a href="#" class="text-electric-orange font-semibold hover:underline mt-4 md:mt-0">View All Products →</a>
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="" *ngFor="let product of featuredProducts; let i = index">
+      <p-card styleClass="h-full flex flex-col rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200">
+        <div class="relative">
+          <div class="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center text-gray-500">
+            <img src="{{ product.image }}" alt="{{ product.name }}" class="w-full h-full object-cover" />
+          </div>
+          <div class="absolute top-3 left-3">
+            <span *ngIf="i === 0" class="bg-emerald-green text-white text-xs font-bold px-2 py-1 rounded">BEST SELLER</span>
+            <span *ngIf="i === 1" class="bg-electric-orange text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+            <span *ngIf="i === 2" class="bg-crimson-red text-white text-xs font-bold px-2 py-1 rounded">LIMITED</span>
+          </div>
+          <div class="absolute top-3 right-3">
+            <button class="w-8 h-8 bg-white bg-opacity-80 rounded-full flex items-center justify-center hover:bg-white transition-colors">
+              <i class="pi pi-heart text-gray-600"></i>
+            </button>
+          </div>
+        </div>
+        <div class="p-4 flex flex-col flex-grow">
+          <div class="mb-2">
+            <h3 class="text-base font-bold text-near-black mb-1">{{ product.name }}</h3>
+            <p class="text-gray-600 text-xs mb-2">{{ product.category }}</p>
+          </div>
+          <span class="text-deep-cobalt font-bold">{{ product.price }}</span>
+          <p class="text-gray-700 text-xs mb-3 flex-grow mt-2">{{ product.description }}</p>
+          <div class="flex items-center mb-3">
+            <div class="flex text-yellow-400 text-xs">
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-fill"></i>
+              <i class="pi pi-star-half-fill"></i>
+            </div>
+            <span class="text-gray-500 text-xs ml-1">(128)</span>
+          </div>
+          <div class="flex gap-2 mt-auto">
+            <p-button label="Add to Cart" icon="pi pi-shopping-cart" styleClass="flex-grow bg-deep-cobalt border-deep-cobalt hover:bg-blue-800 hover:border-blue-800 text-white py-2 text-sm p-2" [rounded]="false"></p-button>
+            <button class="w-10 h-10 bg-soft-light-gray rounded flex items-center justify-center hover:bg-gray-200 transition-colors"><i class="pi pi-search text-gray-600 text-sm"></i></button>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<!-- Categories -->
+<div class="py-16 bg-soft-light-gray">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-near-black mb-4">Shop by Category</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Find the perfect tools for your repair needs</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="group" *ngFor="let category of categories">
+        <div class="bg-white p-6 text-center rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-200 h-full flex flex-col">
+          <div class="w-16 h-16 bg-deep-cobalt bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-electric-orange group-hover:bg-opacity-10 transition-colors">
+            <i [ngClass]="category.icon" class="text-2xl text-deep-cobalt group-hover:text-electric-orange transition-colors"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-near-black">{{ category.name }}</h3>
+          <p class="text-gray-600 mb-4 flex-grow text-sm">{{ category.description }}</p>
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-32 mb-4"></div>
+          <p-button label="Explore Collection" styleClass="bg-transparent border border-deep-cobalt text-deep-cobalt hover:bg-deep-cobalt hover:text-white px-4 py-2 font-semibold text-sm mt-auto" [rounded]="false"></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials -->
+<div class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-near-black mb-4">Trusted by Professionals</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">Hear from technicians who use our tools daily</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-soft-light-gray p-6 rounded-xl border border-gray-200" *ngFor="let testimonial of testimonials">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-deep-cobalt rounded-full flex items-center justify-center text-white font-bold text-lg mr-3">
+            {{ testimonial.initials }}
+          </div>
+          <div>
+            <h4 class="font-bold text-near-black text-sm">{{ testimonial.name }}</h4>
+            <p class="text-gray-600 text-xs">{{ testimonial.role }}</p>
+          </div>
+        </div>
+        <p class="text-gray-700 italic mb-4 text-sm">"{{ testimonial.content }}"</p>
+        <div class="flex text-yellow-400 text-sm">
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+          <i class="pi pi-star-fill"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Newsletter -->
+<div class="py-16 bg-gradient-to-r from-electric-orange to-orange-600 text-white">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-3">Stay Updated on New Products</h2>
+      <p class="text-orange-100 mb-6 text-sm">Subscribe to our newsletter for exclusive offers, new product announcements, and repair tips.</p>
+      <div class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+        <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-lg text-near-black focus:outline-none focus:ring-2 focus:ring-white text-sm">
+        <p-button label="Subscribe" styleClass="bg-near-black text-white hover:bg-gray-800 px-6 py-3 font-semibold text-sm" [rounded]="false"></p-button>
+      </div>
+      <p class="text-orange-100 text-xs mt-3">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-near-black text-white pt-12 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6 mb-8">
+      <div class="md:col-span-2">
+        <h3 class="text-xl font-bold mb-3">MC TOOLS</h3>
+        <p class="text-gray-400 mb-4 text-sm max-w-md">Professional mobile repair tools and parts for technicians worldwide. Trusted by over 5,000 professionals.</p>
+        <div class="flex space-x-3">
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors text-sm">
+            <i class="pi pi-facebook"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors text-sm">
+            <i class="pi pi-twitter"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors text-sm">
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors text-sm">
+            <i class="pi pi-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div class="">
+        <h4 class="text-base font-semibold mb-3">Shop</h4>
+        <ul class="list-none p-0">
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">All Products</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">New Arrivals</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Best Sellers</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Sale Items</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-base font-semibold mb-3">Support</h4>
+        <ul class="list-none p-0">
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Contact Us</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">FAQs</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Shipping Policy</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Returns & Exchanges</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Warranty</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-base font-semibold mb-3">Company</h4>
+        <ul class="list-none p-0">
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">About Us</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Careers</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Blog</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Press</a></li>
+          <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-6 border-gray-800">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 mb-2 md:mb-0 text-xs">© 2023 MC TOOLS. All rights reserved.</p>
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xs">Privacy Policy</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xs">Terms of Service</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-xs">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

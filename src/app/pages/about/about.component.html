@@ -1,0 +1,139 @@
+<div class="container mx-auto px-4 py-8">
+  <nav class="flex mb-8" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center">
+        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-deep-cobalt">
+          <i class="pi pi-home mr-2"></i>
+          Home
+        </a>
+      </li>
+      <li aria-current="page">
+        <div class="flex items-center">
+          <i class="pi pi-chevron-right text-gray-400 mx-2"></i>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">About Us</span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+  
+  <!-- Hero Section -->
+  <div class="bg-gradient-to-r from-deep-cobalt to-blue-900 text-white rounded-2xl p-8 md:p-12 mb-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold mb-6">About MC TOOLS</h1>
+        <p class="text-xl mb-6 text-blue-100">Professional mobile repair tools and parts for technicians worldwide</p>
+        <p class="mb-8">Since 2010, MC TOOLS has been the trusted partner for mobile repair professionals. We provide high-quality tools, genuine parts, and exceptional customer service to help technicians deliver the best possible repairs.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <p-button label="Our Story" styleClass="bg-electric-orange border-electric-orange text-white hover:bg-orange-600 hover:border-orange-600 px-8 py-4 text-lg font-semibold" [rounded]="false"></p-button>
+          <p-button label="Contact Us" styleClass="bg-transparent border-2 border-white text-white hover:bg-white hover:text-deep-cobalt px-8 py-4 text-lg font-semibold" [rounded]="false"></p-button>
+        </div>
+      </div>
+      <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-80 md:h-96 flex items-center justify-center text-gray-500">
+        <div class="text-center">
+          <i class="pi pi-image text-4xl mb-2"></i>
+          <p>Company Headquarters</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Our Story -->
+  <div class="mb-16">
+    <h2 class="text-3xl font-bold text-near-black mb-8 text-center">Our Story</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-80 flex items-center justify-center text-gray-500">
+        <div class="text-center">
+          <i class="pi pi-image text-4xl mb-2"></i>
+          <p>Our Founders</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-near-black mb-6">Founded by technicians, for technicians</h3>
+        <p class="mb-6">MC TOOLS was founded by John Smith, a veteran mobile repair technician with over 20 years of experience. Frustrated with the lack of quality tools and genuine parts in the market, John set out to create a company that would provide exactly what technicians needed.</p>
+        <p class="mb-6">What started as a small online store has grown into a comprehensive supplier of professional mobile repair tools and parts, serving over 5,000 technicians worldwide.</p>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-deep-cobalt rounded-full flex items-center justify-center text-white mr-4">
+              <i class="pi pi-calendar"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-near-black">2010</h4>
+              <p class="text-sm text-gray-600">Founded</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-electric-orange rounded-full flex items-center justify-center text-white mr-4">
+              <i class="pi pi-map-marker"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-near-black">15+</h4>
+              <p class="text-sm text-gray-600">Countries</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-emerald-green rounded-full flex items-center justify-center text-white mr-4">
+              <i class="pi pi-users"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-near-black">5000+</h4>
+              <p class="text-sm text-gray-600">Customers</p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-crimson-red rounded-full flex items-center justify-center text-white mr-4">
+              <i class="pi pi-box"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-near-black">500+</h4>
+              <p class="text-sm text-gray-600">Products</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Our Values -->
+  <div class="mb-16">
+    <h2 class="text-3xl font-bold text-near-black mb-8 text-center">Our Values</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-soft-light-gray p-8 rounded-2xl border border-gray-100 text-center" *ngFor="let value of values">
+        <div class="w-16 h-16 bg-deep-cobalt rounded-full flex items-center justify-center text-white mx-auto mb-6">
+          <i [class]="value.icon" class="text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-4 text-near-black">{{ value.title }}</h3>
+        <p class="text-gray-600">{{ value.description }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Our Team -->
+  <div class="mb-16">
+    <h2 class="text-3xl font-bold text-near-black mb-8 text-center">Our Leadership Team</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 text-center" *ngFor="let member of teamMembers">
+        <div class="bg-gray-200 border-2 border-dashed rounded-full w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+          <span class="text-gray-500 font-bold">{{ getInitials(member.name) }}</span>
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-near-black">{{ member.name }}</h3>
+        <p class="text-electric-orange font-semibold mb-4">{{ member.role }}</p>
+        <p class="text-gray-600">{{ member.bio }}</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Newsletter -->
+  <div class="py-16 bg-gradient-to-r from-electric-orange to-orange-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated on New Products</h2>
+        <p class="text-orange-100 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, new product announcements, and repair tips.</p>
+        <div class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+          <input type="email" placeholder="Your email address" class="flex-grow px-6 py-4 rounded-lg text-near-black focus:outline-none focus:ring-2 focus:ring-white">
+          <p-button label="Subscribe" styleClass="bg-near-black text-white hover:bg-gray-800 px-8 py-4 font-semibold whitespace-nowrap" [rounded]="false"></p-button>
+        </div>
+        <p class="text-orange-100 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+      </div>
+    </div>
+  </div>
+</div>

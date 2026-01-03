@@ -1,0 +1,169 @@
+<div class="container mx-auto px-4 py-8">
+  <nav class="flex mb-8" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center">
+        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-deep-cobalt">
+          <i class="pi pi-home mr-2"></i>
+          Home
+        </a>
+      </li>
+      <li aria-current="page">
+        <div class="flex items-center">
+          <i class="pi pi-chevron-right text-gray-400 mx-2"></i>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Contact Us</span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="text-center mb-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-near-black mb-4">Contact Us</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">Have questions or need assistance? Our team is here to help you with any inquiries about our products or services.</p>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <!-- Contact Form -->
+    <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+      <h2 class="text-2xl font-bold text-near-black mb-6">Send us a message</h2>
+      <form (ngSubmit)="submitForm()" #contactFormRef="ngForm">
+        <div class="mb-6">
+          <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+          <input 
+            id="name" 
+            type="text" 
+            pInputText 
+            [(ngModel)]="contactForm.name" 
+            name="fullName" 
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+            required>
+        </div>
+        
+        <div class="mb-6">
+          <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+          <input 
+            id="email" 
+            type="email" 
+            pInputText 
+            [(ngModel)]="contactForm.email" 
+            name="emailAddress" 
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+            required>
+        </div>
+        
+        <div class="mb-6">
+          <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+          <input 
+            id="subject" 
+            type="text" 
+            pInputText 
+            [(ngModel)]="contactForm.subject" 
+            name="subject" 
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+            required>
+        </div>
+        
+        <div class="mb-6">
+          <label for="category" class="block text-gray-700 font-medium mb-2">Category</label>
+          <p-dropdown 
+            [options]="categories" 
+            [(ngModel)]="contactForm.category" 
+            name="category"
+            optionLabel="name" 
+            optionValue="value"
+            styleClass="w-full"
+            placeholder="Select a category">
+          </p-dropdown>
+        </div>
+        
+        <div class="mb-6">
+          <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+          <textarea 
+            id="message" 
+            pInputTextarea 
+            [(ngModel)]="contactForm.message" 
+            name="message" 
+            rows="5"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+            required></textarea>
+        </div>
+        
+        <p-button 
+          label="Send Message" 
+          styleClass="bg-deep-cobalt border-deep-cobalt hover:bg-blue-800 hover:border-blue-800 text-white px-8 py-3 font-semibold w-full" 
+          [rounded]="false"
+          type="submit">
+        </p-button>
+      </form>
+    </div>
+    
+    <!-- Contact Information -->
+    <div>
+      <div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 mb-8">
+        <h2 class="text-2xl font-bold text-near-black mb-6">Contact Information</h2>
+        
+        <div class="space-y-6">
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-deep-cobalt rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+              <i class="pi pi-map-marker"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-near-black mb-1">Our Location</h3>
+              <p class="text-gray-600">123 Tech Street<br>Electronics City, EC 10001<br>United States</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-electric-orange rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+              <i class="pi pi-phone"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-near-black mb-1">Phone Number</h3>
+              <p class="text-gray-600">(123) 456-7890<br>Mon-Fri, 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-emerald-green rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+              <i class="pi pi-envelope"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-near-black mb-1">Email Address</h3>
+              <p class="text-gray-600">support@mctools.com<br>sales@mctools.com</p>
+            </div>
+          </div>
+          
+          <div class="flex items-start">
+            <div class="w-12 h-12 bg-crimson-red rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0">
+              <i class="pi pi-clock"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-near-black mb-1">Business Hours</h3>
+              <p class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-r from-deep-cobalt to-blue-900 text-white p-8 rounded-2xl">
+        <h2 class="text-2xl font-bold mb-4">Need Immediate Assistance?</h2>
+        <p class="mb-6">For urgent support, call our 24/7 helpline:</p>
+        <div class="text-3xl font-bold mb-6">(123) 456-7890</div>
+        <p-button 
+          label="Live Chat" 
+          icon="pi pi-comments" 
+          styleClass="bg-electric-orange border-electric-orange hover:bg-orange-600 hover:border-orange-600 text-white px-6 py-3 font-semibold" 
+          [rounded]="false">
+        </p-button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Map Placeholder -->
+  <div class="mt-16 bg-gray-200 border-2 border-dashed rounded-2xl w-full h-96 flex items-center justify-center text-gray-500 mb-16">
+    <div class="text-center">
+      <i class="pi pi-map text-4xl mb-2"></i>
+      <p>Interactive Map</p>
+      <p class="text-sm mt-2">Our location in Electronics City</p>
+    </div>
+  </div>
+</div>

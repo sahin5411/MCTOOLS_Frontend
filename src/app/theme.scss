@@ -1,0 +1,197 @@
+/* MC TOOLS Custom Theme */
+
+:root {
+  --deep-cobalt: #0047AB;
+  --electric-orange: #FF6600;
+  --soft-light-gray: #F8F8F8;
+  --near-black: #212121;
+  --emerald-green: #28A745;
+  --crimson-red: #DC3545;
+}
+
+/* Background Colors */
+.bg-deep-cobalt {
+  background-color: var(--deep-cobalt) !important;
+}
+
+.bg-electric-orange {
+  background-color: var(--electric-orange) !important;
+}
+
+.bg-soft-light-gray {
+  background-color: var(--soft-light-gray) !important;
+}
+
+.bg-near-black {
+  background-color: var(--near-black) !important;
+}
+
+.bg-emerald-green {
+  background-color: var(--emerald-green) !important;
+}
+
+.bg-crimson-red {
+  background-color: var(--crimson-red) !important;
+}
+
+/* Text Colors */
+.text-deep-cobalt {
+  color: var(--deep-cobalt) !important;
+}
+
+.text-electric-orange {
+  color: var(--electric-orange) !important;
+}
+
+.text-soft-light-gray {
+  color: var(--soft-light-gray) !important;
+}
+
+.text-near-black {
+  color: var(--near-black) !important;
+}
+
+.text-emerald-green {
+  color: var(--emerald-green) !important;
+}
+
+.text-crimson-red {
+  color: var(--crimson-red) !important;
+}
+
+/* Border Colors */
+.border-deep-cobalt {
+  border-color: var(--deep-cobalt) !important;
+}
+
+.border-electric-orange {
+  border-color: var(--electric-orange) !important;
+}
+
+.border-soft-light-gray {
+  border-color: var(--soft-light-gray) !important;
+}
+
+.border-near-black {
+  border-color: var(--near-black) !important;
+}
+
+.border-emerald-green {
+  border-color: var(--emerald-green) !important;
+}
+
+.border-crimson-red {
+  border-color: var(--crimson-red) !important;
+}
+
+/* Button Custom Styles */
+.p-button.bg-deep-cobalt {
+  background-color: var(--deep-cobalt) !important;
+  border-color: var(--deep-cobalt) !important;
+}
+
+.p-button.bg-deep-cobalt:hover {
+  background-color: #003884 !important;
+  border-color: #003884 !important;
+}
+
+.p-button.bg-electric-orange {
+  background-color: var(--electric-orange) !important;
+  border-color: var(--electric-orange) !important;
+}
+
+.p-button.bg-electric-orange:hover {
+  background-color: #e65c00 !important;
+  border-color: #e65c00 !important;
+}
+
+/* PrimeNG Menu Customization */
+.p-menubar {
+  background-color: var(--near-black) !important;
+  border: none !important;
+  padding: 0.5rem 1rem;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link {
+  color: white !important;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:hover {
+  background-color: var(--deep-cobalt) !important;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 71, 171, 0.2) !important;
+}
+
+/* Card Customization */
+.p-card {
+  border-radius: 0.75rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.p-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Category Card Customization */
+.category-card:hover {
+  border-left: 4px solid var(--electric-orange) !important;
+}
+
+/* Input Fields */
+input[type="email"] {
+  border: 1px solid #d1d5db !important;
+  outline: none !important;
+}
+
+input[type="email"]:focus {
+  border-color: var(--deep-cobalt) !important;
+  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1) !important;
+}
+
+/* Gradient Utilities */
+.bg-gradient-cobalt {
+  background: linear-gradient(135deg, var(--deep-cobalt), #003884) !important;
+}
+
+.bg-gradient-orange {
+  background: linear-gradient(135deg, var(--electric-orange), #e65c00) !important;
+}
+
+/* Additional Spacing */
+.py-12 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.py-16 {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+}
+
+.py-24 {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.25rem !important;
+  }
+  
+  .p-card {
+    margin-bottom: 1rem !important;
+  }
+  
+  .text-center-mobile {
+    text-align: center !important;
+  }
+}

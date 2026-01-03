@@ -1,0 +1,242 @@
+<app-header></app-header>
+
+<div class="container mx-auto px-4 py-8">
+  <nav class="flex mb-8" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center">
+        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-deep-cobalt">
+          <i class="pi pi-home mr-2"></i>
+          Home
+        </a>
+      </li>
+      <li aria-current="page">
+        <div class="flex items-center">
+          <i class="pi pi-chevron-right text-gray-400 mx-2"></i>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Shopping Cart</span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="text-center mb-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-near-black mb-4">Your Shopping Cart</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">Review and manage the items in your cart before checkout</p>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+    <!-- Cart Items -->
+    <div class="lg:col-span-2">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden" *ngIf="cartItems.length > 0">
+        <div class="p-6 border-b border-gray-200">
+          <h2 class="text-xl font-bold text-near-black">Cart Items ({{ cartItems.length }})</h2>
+        </div>
+        
+        <div class="divide-y divide-gray-200">
+          <div class="p-6 flex flex-col sm:flex-row" *ngFor="let item of cartItems">
+            <div class="bg-gray-200 border-2 border-dashed rounded-xl w-24 h-24 flex items-center justify-center text-gray-500 mr-6 mb-4 sm:mb-0">
+              <i class="pi pi-image"></i>
+            </div>
+            
+            <div class="flex-grow">
+              <div class="flex justify-between">
+                <div>
+                  <h3 class="text-lg font-bold text-near-black">{{ item.name }}</h3>
+                  <p class="text-gray-600">{{ item.category }}</p>
+                </div>
+                <button 
+                  (click)="removeItem(item.id)"
+                  class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors">
+                  <i class="pi pi-times text-gray-600"></i>
+                </button>
+              </div>
+              
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-4">
+                <div class="flex items-center mb-4 sm:mb-0">
+                  <span class="text-deep-cobalt font-bold text-lg mr-4">${{ item.price.toFixed(2) }}</span>
+                  <div class="flex items-center">
+                    <label for="quantity-{{ item.id }}" class="mr-2 text-gray-700">Qty:</label>
+                    <p-inputNumber 
+                      [showButtons]="true" 
+                      [min]="1" 
+                      [max]="10" 
+                      [(ngModel)]="item.quantity"
+                      inputId="quantity-{{ item.id }}"
+                      styleClass="w-24"
+                      (onInput)="updateQuantity(item.id, item.quantity)">
+                    </p-inputNumber>
+                  </div>
+                </div>
+                
+                <div class="text-lg font-bold text-near-black">
+                  ${{ (item.price * item.quantity).toFixed(2) }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-6 bg-gray-50 flex justify-end">
+          <button 
+            (click)="cartItems = []"
+            class="text-gray-600 hover:text-red-600 transition-colors flex items-center">
+            <i class="pi pi-trash mr-2"></i>
+            Clear Cart
+          </button>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-12 text-center" *ngIf="cartItems.length === 0">
+        <i class="pi pi-shopping-cart text-5xl text-gray-300 mb-6"></i>
+        <h3 class="text-2xl font-bold text-near-black mb-4">Your cart is empty</h3>
+        <p class="text-gray-600 mb-8">Looks like you haven't added any items to your cart yet</p>
+        <p-button 
+          label="Continue Shopping" 
+          icon="pi pi-arrow-left" 
+          styleClass="bg-deep-cobalt border-deep-cobalt hover:bg-blue-800 hover:border-blue-800 text-white px-8 py-3 font-semibold" 
+          [rounded]="false">
+        </p-button>
+      </div>
+    </div>
+    
+    <!-- Order Summary -->
+    <div>
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
+        <h2 class="text-xl font-bold text-near-black mb-6">Order Summary</h2>
+        
+        <div class="space-y-4 mb-6">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Subtotal</span>
+            <span class="font-medium">${{ getSubtotal().toFixed(2) }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Shipping</span>
+            <span class="font-medium">Free</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Tax</span>
+            <span class="font-medium">${{ getTax().toFixed(2) }}</span>
+          </div>
+          <div class="border-t border-gray-200 pt-4 flex justify-between text-lg font-bold">
+            <span>Total</span>
+            <span>${{ getTotal().toFixed(2) }}</span>
+          </div>
+        </div>
+        
+        <p-button 
+          label="Proceed to Checkout" 
+          styleClass="bg-deep-cobalt border-deep-cobalt hover:bg-blue-800 hover:border-blue-800 text-white px-6 py-3 font-semibold w-full mb-4" 
+          [rounded]="false"
+          (onClick)="checkout()"
+          [disabled]="cartItems.length === 0">
+        </p-button>
+        
+        <p-button 
+          label="Continue Shopping" 
+          styleClass="bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-100 px-6 py-3 font-semibold w-full" 
+          [rounded]="false">
+        </p-button>
+        
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <div class="flex items-center justify-center mb-4">
+            <i class="pi pi-shield text-emerald-green text-2xl mr-2"></i>
+            <span class="font-medium">Secure Checkout</span>
+          </div>
+          <div class="flex justify-center space-x-4">
+            <i class="pi pi-credit-card text-2xl text-gray-400"></i>
+            <i class="pi pi-paypal text-2xl text-gray-400"></i>
+            <i class="pi pi-apple text-2xl text-gray-400"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-r from-electric-orange to-orange-600 text-white p-6 rounded-2xl mt-8">
+        <h3 class="text-xl font-bold mb-2">Free Shipping</h3>
+        <p class="mb-4">On all orders over $50</p>
+        <div class="flex items-center">
+          <i class="pi pi-truck mr-2"></i>
+          <span>Delivery in 2-3 business days</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Newsletter -->
+<div class="py-16 bg-gradient-to-r from-electric-orange to-orange-600 text-white mt-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated on New Products</h2>
+      <p class="text-orange-100 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, new product announcements, and repair tips.</p>
+      <div class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+        <input type="email" placeholder="Your email address" class="flex-grow px-6 py-4 rounded-lg text-near-black focus:outline-none focus:ring-2 focus:ring-white">
+        <p-button label="Subscribe" styleClass="bg-near-black text-white hover:bg-gray-800 px-8 py-4 font-semibold whitespace-nowrap" [rounded]="false"></p-button>
+      </div>
+      <p class="text-orange-100 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-near-black text-white pt-16 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold mb-4">MC TOOLS</h3>
+        <p class="text-gray-400 mb-6 max-w-md">Professional mobile repair tools and parts for technicians worldwide. Trusted by over 5,000 professionals.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-facebook"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-twitter"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Shop</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">All Products</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Best Sellers</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Sale Items</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Support</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Policy</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns & Exchanges</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Company</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-8 border-gray-800">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 mb-4 md:mb-0">© 2023 MC TOOLS. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Terms of Service</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

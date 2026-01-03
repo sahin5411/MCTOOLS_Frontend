@@ -1,0 +1,485 @@
+<div class="container mx-auto px-4 py-8">
+  
+  <nav class="flex mb-8" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center">
+        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-deep-cobalt">
+          <i class="pi pi-home mr-2"></i>
+          Home
+        </a>
+      </li>
+      <li class="inline-flex items-center">
+        <div class="flex items-center">
+          <i class="pi pi-chevron-right text-gray-400 mx-2"></i>
+          <a href="#" class="ml-1 text-sm font-medium text-gray-700 hover:text-deep-cobalt md:ml-2">Cart</a>
+        </div>
+      </li>
+      <li aria-current="page">
+        <div class="flex items-center">
+          <i class="pi pi-chevron-right text-gray-400 mx-2"></i>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Checkout</span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="text-center mb-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-near-black mb-4">Checkout</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">Complete your purchase by providing your shipping and payment information</p>
+  </div>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+    <!-- Checkout Form -->
+    <div class="lg:col-span-2">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-deep-cobalt rounded-full flex items-center justify-center text-white font-bold mr-3">1</div>
+          <h2 class="text-xl font-bold text-near-black">Billing Information</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="billing-first-name" class="block text-gray-700 font-medium mb-2">First Name</label>
+            <input 
+              id="billing-first-name" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.billing.firstName" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div>
+            <label for="billing-last-name" class="block text-gray-700 font-medium mb-2">Last Name</label>
+            <input 
+              id="billing-last-name" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.billing.lastName" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label for="billing-email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+            <input 
+              id="billing-email" 
+              type="email" 
+              pInputText 
+              [(ngModel)]="checkoutForm.billing.email" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label for="billing-phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+            <p-inputMask 
+              id="billing-phone" 
+              mask="(999) 999-9999" 
+              [(ngModel)]="checkoutForm.billing.phone"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+            </p-inputMask>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label for="billing-address" class="block text-gray-700 font-medium mb-2">Street Address</label>
+            <input 
+              id="billing-address" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.billing.address" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div>
+            <label for="billing-city" class="block text-gray-700 font-medium mb-2">City</label>
+            <input 
+              id="billing-city" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.billing.city" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div>
+            <label for="billing-state" class="block text-gray-700 font-medium mb-2">State</label>
+            <p-dropdown 
+              [options]="states" 
+              [(ngModel)]="checkoutForm.billing.state" 
+              optionLabel="name" 
+              optionValue="value"
+              styleClass="w-full"
+              placeholder="Select State">
+            </p-dropdown>
+          </div>
+          
+          <div>
+            <label for="billing-zip" class="block text-gray-700 font-medium mb-2">ZIP Code</label>
+            <p-inputMask 
+              id="billing-zip" 
+              mask="99999" 
+              [(ngModel)]="checkoutForm.billing.zipCode"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+            </p-inputMask>
+          </div>
+          
+          <div>
+            <label for="billing-country" class="block text-gray-700 font-medium mb-2">Country</label>
+            <p-dropdown 
+              [options]="countries" 
+              [(ngModel)]="checkoutForm.billing.country" 
+              styleClass="w-full"
+              placeholder="Select Country">
+            </p-dropdown>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-deep-cobalt rounded-full flex items-center justify-center text-white font-bold mr-3">2</div>
+          <h2 class="text-xl font-bold text-near-black">Shipping Information</h2>
+        </div>
+        
+        <div class="mb-6">
+          <p-checkbox 
+            [(ngModel)]="checkoutForm.shipping.sameAsBilling" 
+            binary="true" 
+            inputId="same-as-billing"
+            label="Same as billing address">
+          </p-checkbox>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" *ngIf="!checkoutForm.shipping.sameAsBilling">
+          <div>
+            <label for="shipping-first-name" class="block text-gray-700 font-medium mb-2">First Name</label>
+            <input 
+              id="shipping-first-name" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.shipping.firstName" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div>
+            <label for="shipping-last-name" class="block text-gray-700 font-medium mb-2">Last Name</label>
+            <input 
+              id="shipping-last-name" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.shipping.lastName" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label for="shipping-address" class="block text-gray-700 font-medium mb-2">Street Address</label>
+            <input 
+              id="shipping-address" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.shipping.address" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div>
+            <label for="shipping-city" class="block text-gray-700 font-medium mb-2">City</label>
+            <input 
+              id="shipping-city" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.shipping.city" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+          
+          <div>
+            <label for="shipping-state" class="block text-gray-700 font-medium mb-2">State</label>
+            <p-dropdown 
+              [options]="states" 
+              [(ngModel)]="checkoutForm.shipping.state" 
+              optionLabel="name" 
+              optionValue="value"
+              styleClass="w-full"
+              placeholder="Select State">
+            </p-dropdown>
+          </div>
+          
+          <div>
+            <label for="shipping-zip" class="block text-gray-700 font-medium mb-2">ZIP Code</label>
+            <p-inputMask 
+              id="shipping-zip" 
+              mask="99999" 
+              [(ngModel)]="checkoutForm.shipping.zipCode"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+            </p-inputMask>
+          </div>
+          
+          <div>
+            <label for="shipping-country" class="block text-gray-700 font-medium mb-2">Country</label>
+            <p-dropdown 
+              [options]="countries" 
+              [(ngModel)]="checkoutForm.shipping.country" 
+              styleClass="w-full"
+              placeholder="Select Country">
+            </p-dropdown>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-deep-cobalt rounded-full flex items-center justify-center text-white font-bold mr-3">3</div>
+          <h2 class="text-xl font-bold text-near-black">Payment Information</h2>
+        </div>
+        
+        <div class="mb-6">
+          <label class="block text-gray-700 font-medium mb-3">Payment Method</label>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="border border-gray-300 rounded-lg p-4 cursor-pointer hover:border-deep-cobalt transition-colors" 
+                 *ngFor="let method of paymentMethods"
+                 [class.border-deep-cobalt]="checkoutForm.payment.method === method.value">
+              <p-radioButton 
+                [value]="method.value" 
+                [(ngModel)]="checkoutForm.payment.method" 
+                [inputId]="'method-' + method.value"
+                name="paymentMethod">
+              </p-radioButton>
+              <label [for]="'method-' + method.value" class="ml-2 cursor-pointer">{{ method.name }}</label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="md:col-span-2">
+            <label for="card-number" class="block text-gray-700 font-medium mb-2">Card Number</label>
+            <p-inputMask 
+              id="card-number" 
+              mask="9999-9999-9999-9999" 
+              [(ngModel)]="checkoutForm.payment.cardNumber"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+            </p-inputMask>
+          </div>
+          
+          <div>
+            <label for="expiry-date" class="block text-gray-700 font-medium mb-2">Expiry Date</label>
+            <p-inputMask 
+              id="expiry-date" 
+              mask="99/99" 
+              placeholder="MM/YY"
+              [(ngModel)]="checkoutForm.payment.expiryDate"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+            </p-inputMask>
+          </div>
+          
+          <div>
+            <label for="cvv" class="block text-gray-700 font-medium mb-2">CVV</label>
+            <p-inputMask 
+              id="cvv" 
+              mask="999" 
+              [(ngModel)]="checkoutForm.payment.cvv"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+            </p-inputMask>
+          </div>
+          
+          <div class="md:col-span-2">
+            <label for="name-on-card" class="block text-gray-700 font-medium mb-2">Name on Card</label>
+            <input 
+              id="name-on-card" 
+              type="text" 
+              pInputText 
+              [(ngModel)]="checkoutForm.payment.nameOnCard" 
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-deep-cobalt focus:border-transparent"
+              required>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Order Summary -->
+    <div>
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-6">
+        <h2 class="text-xl font-bold text-near-black mb-6">Order Summary</h2>
+        
+        <div class="space-y-4 mb-6">
+          <div *ngFor="let item of cartItems" class="flex justify-between">
+            <div class="flex">
+              <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16 flex items-center justify-center text-gray-500 mr-3">
+                <i class="pi pi-image text-sm"></i>
+              </div>
+              <div>
+                <div class="font-medium">{{ item.name }}</div>
+                <div class="text-gray-600 text-sm">Qty: {{ item.quantity }}</div>
+              </div>
+            </div>
+            <div class="font-medium">${{ (item.price * item.quantity).toFixed(2) }}</div>
+          </div>
+        </div>
+        
+        <div class="space-y-3 mb-6">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Subtotal</span>
+            <span class="font-medium">${{ orderSummary.subtotal.toFixed(2) }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Shipping</span>
+            <span class="font-medium">${{ orderSummary.shipping.toFixed(2) }}</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Tax</span>
+            <span class="font-medium">${{ orderSummary.tax.toFixed(2) }}</span>
+          </div>
+          <div class="border-t border-gray-200 pt-3 flex justify-between text-lg font-bold">
+            <span>Total</span>
+            <span>${{ orderSummary.total.toFixed(2) }}</span>
+          </div>
+        </div>
+        
+        <div class="mb-6">
+          <p-checkbox 
+            binary="true" 
+            inputId="terms"
+            label="I agree to the Terms and Conditions">
+          </p-checkbox>
+        </div>
+        
+        <p-button 
+          label="Place Order" 
+          styleClass="bg-deep-cobalt border-deep-cobalt hover:bg-blue-800 hover:border-blue-800 text-white px-6 py-3 font-semibold w-full mb-4" 
+          [rounded]="false"
+          (onClick)="placeOrder()">
+        </p-button>
+        
+        <div class="flex items-center justify-center mt-6 pt-6 border-t border-gray-200">
+          <i class="pi pi-shield text-emerald-green text-2xl mr-2"></i>
+          <span class="font-medium">Secure Checkout</span>
+        </div>
+      </div>
+      
+      <div class="bg-gradient-to-r from-electric-orange to-orange-600 text-white p-6 rounded-2xl mt-8">
+        <h3 class="text-xl font-bold mb-2">Need Help?</h3>
+        <p class="mb-4">Our support team is available 24/7</p>
+        <div class="flex items-center">
+          <i class="pi pi-phone mr-2"></i>
+          <span>(123) 456-7890</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Auth Dialog shown on checkout when not authenticated -->
+<p-dialog [(visible)]="authVisible" [modal]="true" [dismissableMask]="true" [style]="{ width: '34rem' }" [breakpoints]="{ '960px': '90vw', '640px': '95vw' }">
+  <ng-template pTemplate="header">
+    <div class="flex items-center justify-between w-full">
+      <div class="flex items-center gap-1">
+        <button class="px-4 py-2 rounded-t-lg" [class.bg-white]="authMode==='login'" [class.text-near-black]="authMode==='login'" [class.text-white]="authMode!=='login'" (click)="switchMode('login')">Login</button>
+        <button class="px-4 py-2 rounded-t-lg" [class.bg-white]="authMode==='signup'" [class.text-near-black]="authMode==='signup'" [class.text-white]="authMode!=='signup'" (click)="switchMode('signup')">Sign up</button>
+      </div>
+    </div>
+  </ng-template>
+  <div class="p-2">
+    <app-login *ngIf="authMode==='login'" (success)="onAuthSuccess()"></app-login>
+    <app-signup *ngIf="authMode==='signup'" (success)="onAuthSuccess()"></app-signup>
+  </div>
+  <ng-template pTemplate="footer">
+    <div class="w-full flex items-center justify-between">
+      <span class="text-sm text-gray-600">You can checkout faster by creating an account.</span>
+      <div class="flex gap-2">
+        <p-button label="Cancel" (onClick)="authVisible=false" styleClass="bg-transparent border border-gray-300 text-near-black hover:bg-soft-light-gray" [rounded]="false"></p-button>
+        <p-button *ngIf="authMode==='login'" label="Sign up" (onClick)="switchMode('signup')" styleClass="bg-electric-orange border-electric-orange text-white" [rounded]="false"></p-button>
+        <p-button *ngIf="authMode==='signup'" label="Login" (onClick)="switchMode('login')" styleClass="bg-deep-cobalt border-deep-cobalt text-white" [rounded]="false"></p-button>
+      </div>
+    </div>
+  </ng-template>
+</p-dialog>
+
+<!-- Newsletter -->
+<div class="py-16 bg-gradient-to-r from-electric-orange to-orange-600 text-white mt-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated on New Products</h2>
+      <p class="text-orange-100 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, new product announcements, and repair tips.</p>
+      <div class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+        <input type="email" placeholder="Your email address" class="flex-grow px-6 py-4 rounded-lg text-near-black focus:outline-none focus:ring-2 focus:ring-white">
+        <p-button label="Subscribe" styleClass="bg-near-black text-white hover:bg-gray-800 px-8 py-4 font-semibold whitespace-nowrap" [rounded]="false"></p-button>
+      </div>
+      <p class="text-orange-100 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-near-black text-white pt-16 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold mb-4">MC TOOLS</h3>
+        <p class="text-gray-400 mb-6 max-w-md">Professional mobile repair tools and parts for technicians worldwide. Trusted by over 5,000 professionals.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-facebook"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-twitter"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Shop</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">All Products</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Best Sellers</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Sale Items</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Support</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Policy</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns & Exchanges</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Company</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-8 border-gray-800">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 mb-4 md:mb-0">© 2023 MC TOOLS. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Terms of Service</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

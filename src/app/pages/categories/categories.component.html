@@ -1,0 +1,122 @@
+<app-header></app-header>
+
+<div class="container mx-auto px-4 py-8">
+  <nav class="flex mb-8" aria-label="Breadcrumb">
+    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+      <li class="inline-flex items-center">
+        <a href="#" class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-deep-cobalt">
+          <i class="pi pi-home mr-2"></i>
+          Home
+        </a>
+      </li>
+      <li aria-current="page">
+        <div class="flex items-center">
+          <i class="pi pi-chevron-right text-gray-400 mx-2"></i>
+          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">Categories</span>
+        </div>
+      </li>
+    </ol>
+  </nav>
+  
+  <div class="text-center mb-12">
+    <h1 class="text-3xl md:text-4xl font-bold text-near-black mb-4">Shop by Category</h1>
+    <p class="text-gray-600 max-w-2xl mx-auto">Find the perfect tools for your repair needs</p>
+  </div>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="group" *ngFor="let category of categories">
+      <div class="category-card bg-white p-8 text-center rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 h-full flex flex-col">
+        <div class="w-24 h-24 bg-deep-cobalt bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-electric-orange group-hover:bg-opacity-10 transition-colors">
+          <i [class]="category.icon" class="text-4xl text-deep-cobalt group-hover:text-electric-orange transition-colors"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3 text-near-black">{{ category.name }}</h3>
+        <p class="text-gray-600 mb-4 flex-grow">{{ category.description }}</p>
+        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-48 mb-6"></div>
+        <div class="flex justify-between items-center mt-auto">
+          <span class="text-gray-600">{{ category.products }} products</span>
+          <p-button label="Explore" icon="pi pi-arrow-right" iconPos="right" styleClass="bg-transparent border border-deep-cobalt text-deep-cobalt hover:bg-deep-cobalt hover:text-white px-6 py-3 font-semibold" [rounded]="false"></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Newsletter -->
+<div class="py-16 bg-gradient-to-r from-electric-orange to-orange-600 text-white mt-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated on New Products</h2>
+      <p class="text-orange-100 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive offers, new product announcements, and repair tips.</p>
+      <div class="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+        <input type="email" placeholder="Your email address" class="flex-grow px-6 py-4 rounded-lg text-near-black focus:outline-none focus:ring-2 focus:ring-white">
+        <p-button label="Subscribe" styleClass="bg-near-black text-white hover:bg-gray-800 px-8 py-4 font-semibold whitespace-nowrap" [rounded]="false"></p-button>
+      </div>
+      <p class="text-orange-100 text-sm mt-4">We respect your privacy. Unsubscribe at any time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-near-black text-white pt-16 pb-8">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold mb-4">MC TOOLS</h3>
+        <p class="text-gray-400 mb-6 max-w-md">Professional mobile repair tools and parts for technicians worldwide. Trusted by over 5,000 professionals.</p>
+        <div class="flex space-x-4">
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-facebook"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-twitter"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a href="#" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center hover:bg-deep-cobalt transition-colors">
+            <i class="pi pi-youtube"></i>
+          </a>
+        </div>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Shop</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">All Products</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">New Arrivals</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Best Sellers</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Sale Items</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Support</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Policy</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns & Exchanges</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Warranty</a></li>
+        </ul>
+      </div>
+      <div class="">
+        <h4 class="text-lg font-semibold mb-4">Company</h4>
+        <ul class="list-none p-0">
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Press</a></li>
+          <li class="mb-3"><a href="#" class="text-gray-400 hover:text-white transition-colors">Partners</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-8 border-gray-800">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 mb-4 md:mb-0">© 2023 MC TOOLS. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Terms of Service</a>
+        <a href="#" class="text-gray-500 hover:text-white transition-colors text-sm">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>

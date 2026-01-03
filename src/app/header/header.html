@@ -1,0 +1,155 @@
+<!-- Compact Header Design -->
+<header class="compact-header">
+  <div class="container mx-auto px-4 pb-3">
+    <!-- Main Header -->
+    <div class="main-header flex items-center justify-between py-4">
+      <!-- Logo -->
+      <div class="logo-section">
+        <div class="logo-container">
+          <a routerLink="/" class="logo-placeholder inline-block">
+            <span class="logo-text">MC<span class="logo-highlight">TOOLS</span></span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Search Bar -->
+      <div class="search-section flex-1 max-w-2xl mx-8 hidden md:block">
+        <div class="search-container relative">
+          <input 
+            type="text" 
+            pInputText 
+            [(ngModel)]="searchQuery" 
+            (keyup.enter)="onSearch()"
+            placeholder="Search tools, parts, brands..." 
+            class="w-full px-4 py-2 pl-10 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-electric-orange">
+          <i class="pi pi-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+          <button (click)="onSearch()" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-electric-orange text-white px-4 py-1 rounded-md hover:bg-orange-600 transition-colors text-sm">
+            Search
+          </button>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-section flex items-center space-x-4">
+        <p-button 
+          *ngIf="!auth.isAuthenticated()" 
+          icon="pi pi-user" 
+          styleClass="action-button" 
+          severity="secondary" 
+          text 
+          [rounded]="true" 
+          (onClick)="openLogin()">
+        </p-button>
+        
+        <div *ngIf="auth.isAuthenticated()" class="relative group">
+          <button 
+            class="w-10 h-10 bg-electric-orange rounded-full flex items-center justify-center text-white font-bold text-sm hover:bg-orange-600 transition-colors"
+            (click)="toggleUserMenu()">
+            <span>{{ userInitials }}</span>
+          </button>
+          
+          <!-- User Menu Dropdown -->
+          <div 
+            *ngIf="showUserMenu" 
+            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 border border-gray-200"
+            @fadeInOut>
+            <a routerLink="/account" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Profile</a>
+            <a routerLink="/account/orders" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">My Orders</a>
+            <a routerLink="/account/wishlist" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Wishlist</a>
+            <div class="border-t border-gray-200 my-1"></div>
+            <button (click)="logout()" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+          </div>
+        </div>
+        
+        <p-button icon="pi pi-heart" styleClass="action-button" severity="secondary" text [rounded]="true"></p-button>
+        <div class="cart-container">
+          <p-button icon="pi pi-shopping-cart" styleClass="action-button" severity="secondary" text [rounded]="true" (onClick)="openCart()"></p-button>
+          <span class="cart-count">{{ cartItemCount }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="main-navigation">
+      <div class="nav-links flex flex-wrap justify-center gap-6 md:gap-8 text-center">
+        <a routerLink="/" routerLinkActive="active" class="nav-link">Home</a>
+        <a routerLink="/products" routerLinkActive="active" class="nav-link">Products</a>
+        <a routerLink="/categories" routerLinkActive="active" class="nav-link">Categories</a>
+        <a routerLink="/brands" routerLinkActive="active" class="nav-link">Brands</a>
+        <a routerLink="/about" routerLinkActive="active" class="nav-link">About</a>
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- Cart Sidebar -->
+<p-sidebar [(visible)]="cartVisible" position="right" styleClass="w-96 compact-cart">
+  <div class="cart-header">
+    <h3 class="cart-title">Your Cart</h3>
+    <button class="cart-close" (click)="closeCart()">
+      <i class="pi pi-times"></i>
+    </button>
+  </div>
+  
+  <div class="cart-content">
+    <div class="cart-items">
+      <div class="cart-item">
+        <div class="item-image">
+          <div class="image-placeholder"></div>
+        </div>
+        <div class="item-details">
+          <h4 class="item-name">Precision Screwdriver Set</h4>
+          <div class="item-price">$89.99</div>
+        </div>
+        <div class="item-quantity">
+          <span class="quantity">1</span>
+        </div>
+        <button class="remove-item">
+          <i class="pi pi-trash"></i>
+        </button>
+      </div>
+      
+      <div class="cart-item">
+        <div class="item-image">
+          <div class="image-placeholder"></div>
+        </div>
+        <div class="item-details">
+          <h4 class="item-name">Screen Protector Kit</h4>
+          <div class="item-price">$19.99</div>
+        </div>
+        <div class="item-quantity">
+          <span class="quantity">2</span>
+        </div>
+        <button class="remove-item">
+          <i class="pi pi-trash"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="cart-summary">
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <span class="total-value">$129.97</span>
+      </div>
+      
+      <div class="cart-actions">
+        <p-button label="View Cart" styleClass="cart-action-btn secondary" [rounded]="false" [routerLink]="['/cart']" (onClick)="closeCart()"></p-button>
+        <p-button label="Checkout" styleClass="cart-action-btn primary" [rounded]="false" [routerLink]="['/checkout']" (onClick)="closeCart()"></p-button>
+      </div>
+    </div>
+  </div>
+</p-sidebar>
+
+<!-- Login Dialog -->
+<p-dialog [(visible)]="loginVisible" [style]="{width: '400px'}" [modal]="true" [draggable]="false" [resizable]="false">
+  <ng-template pTemplate="header">
+    <h3>Login</h3>
+  </ng-template>
+  
+  <app-login (loginSuccess)="onLoginSuccess()"></app-login>
+  
+  <ng-template pTemplate="footer">
+    <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-text" (onClick)="closeLogin()"></p-button>
+  </ng-template>
+</p-dialog>
