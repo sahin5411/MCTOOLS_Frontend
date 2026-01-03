@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Header } from '../../header/header';
 import { CommonModule } from '@angular/common';
 
 // PrimeNG Modules
@@ -11,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
   standalone: true,
-  imports: [Header, CardModule, ButtonModule, CommonModule]
+  imports: [CardModule, ButtonModule, CommonModule]
 })
 export class CategoriesComponent {
   categories = [
