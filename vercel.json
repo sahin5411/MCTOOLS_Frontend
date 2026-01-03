@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "framework": "angular",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/angular",
+      "config": {
+        "distDir": "dist/mc-tools"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
