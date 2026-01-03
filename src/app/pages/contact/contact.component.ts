@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputTextarea } from 'primeng/inputtextarea';
 import { DropdownModule } from 'primeng/dropdown';
 
 @Component({
@@ -14,7 +14,7 @@ import { DropdownModule } from 'primeng/dropdown';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
   standalone: true,
-  imports: [CardModule, ButtonModule, InputTextModule, InputTextareaModule, DropdownModule, CommonModule, FormsModule]
+  imports: [CardModule, ButtonModule, InputTextModule, InputTextarea, DropdownModule, CommonModule, FormsModule]
 })
 export class ContactComponent {
   contactForm = {
